@@ -22,3 +22,20 @@ Once the folder has been created, the server can be started with:
   python app.py
 ```
 The front-end is accessible with a browser at `http://127.0.0.1:5000/`.
+
+## Docker Image
+Alternatively, we provide a docker image with a base environment to deploy a project that contains all dependencies.
+
+# Build Docker Image
+In this repository there are the files necesary for to build the image docker. Make sure you are still at the top level of your directory.
+
+  docker build -t templateflaskpythond3 path_to_directory
+
+# Run Docker Image
+To run docker image
+
+  docker run -p 5000:80 templateflaskpythond3
+
+In case we need to work with data, we have to make sure that a folder containing. To map a data directory to a docker container directory you need to use the -v flag when using docker run like so.
+
+  docker run -p 5000:80 -v /data/:/path_to_folder_add/ templateflaskpythond3
